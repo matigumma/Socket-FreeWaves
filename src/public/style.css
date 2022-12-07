@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f1f1f1;
+  color: #010101;
+}
+.btn {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.evento {
+  background: #919191;
+  margin: 10px;
+  padding: 50px 0;
+}
+.ventana_evento {
+  margin: 10px 5px;
+  padding: 80px 0;
+  border: 3px solid #010101;
+}
+.evento > .ventana_evento > ul {
+  margin: 40px;
+}
+.evento > .ventana_evento > label {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 5px;
+}
+.evento > .ventana_evento > .ventana_evento_send > ul > li {
+  list-style: none;
+  padding: 10px 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.enviado {
+  background: #414141;
+  padding: 40px;
+  margin: 5px 20px;
+  border: 3px solid #010101;
+  border-radius: 5px;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+.form > input {
+  padding: 10px;
+  border-radius: 5px;
+}
