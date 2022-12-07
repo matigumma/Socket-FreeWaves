@@ -1,6 +1,7 @@
 import express from "express";
 import { Server as SocketServer } from "socket.io";
 import http from "http";
+import { PORT } from "./config";
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -9,7 +10,7 @@ const io = new SocketServer(httpServer);
 app.use(express.static(__dirname + "/public"));
 var DATA_WS = [];
 io.on("connection", (socket) => {
-//   console.log("id user : ", socket.id);
+  //   console.log("id user : ", socket.id);
   socket.on("cliente:EVENTO", (data) => {
     // console.log("EVENTO: ", data);
     const dataEvento = { ...data, id: socket.id }; // Agrego el id para identificar el evento, si no se necesita eliminar esta linea
@@ -24,6 +25,6 @@ io.on("connection", (socket) => {
   //   });
 });
 
-httpServer.listen(3000, () => {
-  console.log("server en el puerto", 3000);
+httpServer.listen(PORT, () => {
+  console.log("server en el puerto", PORT);
 });
