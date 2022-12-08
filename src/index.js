@@ -1,7 +1,7 @@
 import express from "express";
 import { Server as SocketServer } from "socket.io";
 import http from "http";
-import { PORT } from "./config";
+import { PORT } from "./config.js";
 
 const app = express();
 const httpServer = http.createServer(app);
