@@ -14,9 +14,8 @@
       <input type="text" id="image" name="image" placeholder="image" />
       <input type="text" id="message" name="message" placeholder="message" />
       <input type="text" id="type" name="type" placeholder="type" />
-        <button id="enviar_evento" class="btn">
-          Enviar Evento
-        </button>
+      <button id="enviar_evento" class="btn">Enviar Evento</button>
+      <button id="api_evento" class="btn">Enviar a la API</button>
     </form>
 
     <div class="evento">
@@ -30,10 +29,15 @@
         <label>Broadcast del evento procesado:</label>
         <div class="ventana_evento_send"" id="ventana_br"></div>
       </div>
+      <div class="ventana_evento">
+        <label>Api FreeWaves evento procesado:</label>
+        <div class="ventana_evento_send"" id="ventana_api"></div>
+      </div>
     </div>
 
     <script src="/socket.io/socket.io.min.js"></script>
     <script src="./socket.js"></script>
+    <script src="./date-time.js"></script>
     <script src="./ui.js"></script>
   </body>
 </html>

@@ -16,6 +16,7 @@
     "@babel/node": "^7.20.5",
     "@babel/plugin-transform-runtime": "^7.19.6",
     "@babel/preset-env": "^7.20.2",
+    "axios": "^1.2.1",
     "nodemon": "^2.0.20"
   },
   "dependencies": {
@@ -24,6 +25,7 @@
     "express": "^4.18.2",
     "ncp": "^2.0.0",
     "socket.io": "^4.5.4",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "zod": "^3.19.1"
   }
 }
