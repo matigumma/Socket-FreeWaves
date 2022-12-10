@@ -16,8 +16,8 @@ socket.on("connect", () => {
 
 btn_enviar_evento.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log("enviando");
-  enviado.innerHTML = `<h1>ENVIADO ✈</h1>`;
+  console.log("enviando WS");
+  enviado.innerHTML = `<h1>ENVIADO WS ✈</h1>`;
   //funcion en ui.js
   sendEvent({
     name: Name.value, //string
