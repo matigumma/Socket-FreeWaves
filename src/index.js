@@ -35,23 +35,23 @@ app.post("/date-time", (req, res) => {
         message: obj.message,
         type: obj.type,
         count: 1,
-        timestamp: new Date().getTime(), // creando el timestamp en el primer evento del tipo
+        timestamp: new Date(), // creando el timestamp en el primer evento del tipo
       };
       STORE.push(primer_evento_del_tipo);
     } else {
       evento_en_store.count++;
-      evento_en_store.timestamp = new Date().getTime(); // creando el timestamp en cada evento nuevo
-      STORE.push(
-        STORE.filter((evento_en_store) => evento_en_store.type !== obj.type)
+      evento_en_store.timestamp = new Date(); // creando el timestamp en cada evento nuevo
+      var NEW_STORE = STORE.filter(
+        (evento_en_store) => evento_en_store.type !== obj.type
       );
     }
-    // console.log(STORE);
+    // console.log(NEW_STORE);
     res.status(200).send(STORE);
   } catch (e) {
     if (e instanceof ZodError) {
       return res.status(400).json({
         "Tipo requerido": e.issues[0].type, // errores input
-        "Error message": e.issues[0].message,
+        "message": e.issues[0].message,
         "El error es en": e.issues[0].path[0],
       });
     } else {

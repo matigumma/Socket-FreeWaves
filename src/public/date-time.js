@@ -4,9 +4,7 @@ const type_api = document.querySelector("#type");
 const message_api = document.querySelector("#message");
 const btn_enviar_api = document.querySelector("#api_evento");
 
-btn_enviar_api.addEventListener("click", async (e) => {
-  // console.log(name_api.value, image_api.value)
-  e.preventDefault();
+const EVENTO = async () => {
   await fetch("/date-time", {
     headers: {
       Accept: "application/json",
@@ -22,8 +20,13 @@ btn_enviar_api.addEventListener("click", async (e) => {
   })
     .then((res) => res.json())
     .then((response) => {
-    //   console.log("Success:", response);
-      appendApi(response)
+      //   console.log("Success:", response);
+      appendApi(response);
     })
-    .catch((error) => console.log("Error:", error));
+    .catch((error) => console.error("Error:", error));
+};
+
+btn_enviar_api.addEventListener("click", async (e) => {
+  e.preventDefault();
+  EVENTO();
 });
