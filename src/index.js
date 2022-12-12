@@ -51,7 +51,7 @@ app.post("/date-time", (req, res) => {
     if (e instanceof ZodError) {
       return res.status(400).json({
         "Tipo requerido": e.issues[0].type, // errores input
-        "message": e.issues[0].message,
+        message: e.issues[0].message,
         "El error es en": e.issues[0].path[0],
       });
     } else {
@@ -72,11 +72,7 @@ io.on("connection", (socket) => {
     DATA_WS.push(dataEvento);
     socket.broadcast.emit("server:EVENTO", dataEvento);
   });
-  //   socket.on("cliente:STORE_ACT", (STORE) => {
-  // console.log(STORE);
-  // const dataStore = STORE;
-  // socket.broadcast.emit("server:STORE_ACT", dataStore);
-  //   });
+  socket.broadcast.emit("hello", STORE);
 });
 
 httpServer.listen(PORT, () => {

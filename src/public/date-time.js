@@ -1,3 +1,4 @@
+
 const name_api = document.querySelector("#name");
 const image_api = document.querySelector("#image");
 const type_api = document.querySelector("#type");
@@ -5,6 +6,7 @@ const message_api = document.querySelector("#message");
 const btn_enviar_api = document.querySelector("#api_evento");
 
 const EVENTO = async () => {
+  const socket = io();
   await fetch("/date-time", {
     headers: {
       Accept: "application/json",
@@ -20,7 +22,7 @@ const EVENTO = async () => {
   })
     .then((res) => res.json())
     .then((response) => {
-      //   console.log("Success:", response);
+      //console.log("Success:", response);
       appendApi(response);
     })
     .catch((error) => console.error("Error:", error));
