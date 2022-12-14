@@ -54,13 +54,15 @@ const procesadoApi = async (evento) => {
 io.on("connection", (socket) => {
   //   console.log("id user : ", socket.id);
   // console.log(STORE);
-  socket.broadcast.emit("server:STORE", STORE); // primer evento al cargar la pag
+  // socket.broadcast.emit("server:STORE", STORE); // primer evento al cargar la pag
+  socket.emit("server:STORE", STORE); // primer evento al cargar la pag
 
-  socket.on("cliente:EVENTO", async (data)=> {
-   await procesadoApi(data); // logica de la api
+  socket.on("cliente:EVENTO", async (data) => {
+    await procesadoApi(data); // logica de la api
     const dataEvento = { ...data, id: socket.id }; // Agrego el id para identificar el evento, si no se necesita eliminar esta linea
     // console.log(STORE);
-    socket.broadcast.emit("server:EVENTO", {
+    // socket.broadcast.emit("server:EVENTO", {
+    socket.emit("server:EVENTO", {
       dataEvento: dataEvento,
       dataEventoProcesado: STORE,
     });

@@ -11,6 +11,7 @@ const enviado = document.querySelector("#enviado");
 // primera conexion, recibe el broadcast del STORE y emite un evento de conexion
 socket.on("connect", () => {
   console.log("conected");
+  
   socket.on("server:STORE", (data) => {
     console.log("Store actual:", data); // cuando se carga el cliente te muestra el store por consola
   });

@@ -81,7 +81,8 @@ var procesadoApi = /*#__PURE__*/function () {
 io.on("connection", function (socket) {
   //   console.log("id user : ", socket.id);
   // console.log(STORE);
-  socket.broadcast.emit("server:STORE", STORE); // primer evento al cargar la pag
+  // socket.broadcast.emit("server:STORE", STORE); // primer evento al cargar la pag
+  socket.emit("server:STORE", STORE); // primer evento al cargar la pag
 
   socket.on("cliente:EVENTO", /*#__PURE__*/function () {
     var _ref2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(data) {
@@ -98,7 +99,8 @@ io.on("connection", function (socket) {
                 id: socket.id
               }); // Agrego el id para identificar el evento, si no se necesita eliminar esta linea
               // console.log(STORE);
-              socket.broadcast.emit("server:EVENTO", {
+              // socket.broadcast.emit("server:EVENTO", {
+              socket.emit("server:EVENTO", {
                 dataEvento: dataEvento,
                 dataEventoProcesado: STORE
               });
