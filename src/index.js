@@ -10,7 +10,7 @@ const app = express();
 const httpServer = http.createServer(app);
 const io = new SocketServer(httpServer);
 
-app.use(express.static(__dirname + "/public"));
+// app.use(express.static(__dirname + "/public"));
 app.use(
   cors({
     origin: "*",
@@ -47,9 +47,6 @@ const procesadoApi = async (evento) => {
     evento_en_store.timestamp = new Date(); // creando el timestamp en cada evento nuevo
     STORE.some((evento_en_store) => evento_en_store.name !== obj.name); //filtrando los eventos del mismo tipo
   }
-  // console.log(STORE);
-  res.status(200).json(STORE);
-
 };
 
 io.on("connection", (socket) => {

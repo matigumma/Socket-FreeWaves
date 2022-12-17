@@ -14,7 +14,8 @@ var cors = require("cors");
 var app = (0, _express["default"])();
 var httpServer = _http["default"].createServer(app);
 var io = new _socket.Server(httpServer);
-app.use(_express["default"]["static"](__dirname + "/public"));
+
+// app.use(express.static(__dirname + "/public"));
 app.use(cors({
   origin: "*"
 }));
@@ -58,9 +59,7 @@ var procesadoApi = /*#__PURE__*/function () {
                 return evento_en_store.name !== obj.name;
               }); //filtrando los eventos del mismo tipo
             }
-            // console.log(STORE);
-            res.status(200).json(STORE);
-          case 4:
+          case 3:
           case "end":
             return _context.stop();
         }
